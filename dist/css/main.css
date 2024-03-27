@@ -1524,7 +1524,7 @@ form input[type=email],
 form input[type=password],
 form select,
 form textarea {
-  -webkit-appearance: none;
+  /* -webkit-appearance: none; */
   display: block;
   border: 0;
   background: #fafafa;
