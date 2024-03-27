@@ -1,5 +1,7 @@
-// const Calendar = tui.Calendar;
+const grpViews = document.querySelectorAll('[name=views]')
+
 const calendar = new tui.Calendar( '#calendar', {
+  usageStatistics: false,
   defaultView: 'week',
   template: {
     time ( event ) {
@@ -23,4 +25,23 @@ const calendar = new tui.Calendar( '#calendar', {
       backgroundColor: '#00a9ff',
     },
   ],
+} );
+
+calendar.setTheme( {
+  common: {
+    gridSelection: {
+      backgroundColor: 'rgba(81, 230, 92, 0.05)',
+      border: '1px dotted #515ce6',
+    },
+  },
+} );
+
+// change calendar views by radio selection
+grpViews.forEach( ( radio ) => {
+  radio.addEventListener( 'change', ( event ) => {
+    const selectedValue = event.target.id;
+    console.log( `Selected value: ${selectedValue}` );
+    calendar.changeView(selectedValue)
+    // You can perform further actions based on the selected value
+  } );
 } );
